@@ -5,105 +5,128 @@
 
 <title>HTML5 accessibility support work arounds</title>
 <style type="text/css">
-	body
+  body {
+    font: arial, Verdana, helvetica, sans-serif;
+    color: #333;
+    background: #ffffff;
+    padding: 0 1em;
+    font-family: Arial, Helvetica, sans-serif;
+  }
 
-	{
-		font: arial, Verdana, helvetica, sans-serif;
-		color: #333;
-		background: #ffffff;
-		padding: 0 1em;
-font-family:Arial, Helvetica, sans-serif;
+  caption {
+    text-align: left;
+    font-weight: bold;
+    font-size: large;
+  }
 
-	}
+  h1 {
+    color: #630;
+    font-size: 300%;
+  }
 
-	caption {text-align:left;font-weight:bold;font-size:large}
+  table {
+    border-collapse: collapse;
+    border: 1px solid #630;
+    font: normal 90% arial, Verdana, helvetica, sans-serif;
+  }
+  th, td {
+    text-align: left;
+    vertical-align: top;
+    padding: 0.3em;
+    border: 1px solid #630;
+  }
 
-	h1 { 
-	color: #630;
-font-size: 300%;}
+  th {
+    font-size: 150%;
+  }
+  td {
+    font-size: 130%;
+  }
+  td p {
+    margin: 0;
+  }
+  thead th, thead td {
+    font-weight: bold;
+    text-align: center;
+  }
 
-
-
-	table
-
-	{
-
-		border-collapse: collapse;
-
-		border: 1px solid #630;
-
-		font: normal 90% arial, Verdana, helvetica, sans-serif;
-	}
-
-
-
-	th, td
-
-	{
-
-		text-align: left;
-
-		vertical-align: top;
-
-		padding: 0.3em;
-
-		border: 1px solid #630;
-
-	}
-
-	th {font-size:150%;}
-	td {font-size:130%;}
-	td p {margin:0 0 0 0;}
-	thead th, thead td
-
-	{
-
-		font-weight: bold;
-
-		text-align: center;
-
-	}
-
-	td span {border: 2px solid #9acd32;display:inline-block;padding:2px;}
-	span:focus {background:#f5f5f5;border: 2px solid #a0522d;}
-	/*td:focus {background:#f5f5f5;border: 2px solid #a0522d;}*/
-	caption {text-align:left}
+  td span {
+    border: 2px solid #9acd32;
+    display: inline-block;
+    padding: 2px;
+  }
+  span:focus {
+    background: #f5f5f5;
+    border: 2px solid #a0522d;
+  }
+  /*td:focus {background: #f5f5f5;border: 2px solid #a0522d;}*/
+  caption {
+    text-align: left;
+  }
 
 
-	td.support {background:#90ee90;}
-	td.partial {background:#eee8aa;}
-	td.nosupport{background:#ffb6c1;}
+  td.support {
+    background: #90ee90;
+  }
+  td.partial {
+    background: #eee8aa;
+  }
+  td.nosupport {
+    background: #ffb6c1;
+  }
 
 
-	td p.note{border: 1px dashed red;padding: 5px;margin-top:5px;background:#FFFFFF}
+  td p.note {
+    border: 1px dashed red;
+    padding: 5px;
+    margin-top: 5px;
+    background: #FFFFFF;
+  }
 
-	td ul  {padding-left:12px}
-	/*	img {border: 1px solid #630;}*/
-	.test {border: 1px solid #666666;padding:4px;margin-top:15px;background:#FFFFCC}
+  td ul {padding-left: 12px;}
+  /*  img {border: 1px solid #630;}*/
+  .test {
+    border: 1px solid #666666;
+    padding: 4px;
+    margin-top: 15px;
+    background: #FFFFCC;
+  }
 
-	h1{
-		font-family: "Cooper Black";
-	}
-	
-	h2 {
-		font-family: "Cooper Black";
-		color:#090;
-		font-size:200%;
-	}
-	
-	h1 span {font-size:100%}
-h2 {
-	color: #008000;
-}
+  h1{
+    font-family: "Cooper Black";
+  }
+
+  h2 {
+    font-family: "Cooper Black";
+    color: #090;
+    font-size: 200%;
+  }
+
+  h1 span {
+    font-size: 100%;
+  }
+  h2 {
+    color: #008000;
+  }
 
 
-#float {float:right;}
+  #float {
+    float: right;
+  }
 
-.nvda { border:1px #060 solid; font-size: 80%;padding:5px;}
+  .nvda {
+    border: 1px #060 solid;
+    font-size: 80%;
+    padding: 5px;
+  }
 
-#banner {float:left; }
+  #banner {
+    float: left;
+  }
 
-#subheader {clear:both}
+  #subheader {
+    clear: both;
+  }
 </style>
 
 </head>

@@ -5,155 +5,186 @@
 
 <title>HTML5 accessibility</title>
 <style type="text/css">
-	body 
+  body {
+    font-family: arial, Verdana, helvetica, sans-serif;
+    color: #333;
+    background: #FC0;
+    padding: 0;
+    font-size: 90%;
+  }
 
-	{
-		font-family: arial, Verdana, helvetica, sans-serif;
-		
-		color: #333;
-		background: #FC0;
-		padding: 0;
-font-size:90%
+  caption {
+    text-align: left;
+    font-weight: bold;
+    font-size: large;
+  }
 
-	}
+  h1,h2 {
+    font-family: Verdana,arial, helvetica, sans-serif;
+    font-size: larger;
+  }
+  header {
+    border: 1px dashed #ffd700;
+    padding: 1em;
+    margin: 0;
+  }
 
-	caption {text-align:left;font-weight:bold;font-size:large}
+  .navlist li {
+    display: inline;
+    list-style-type: none;
+    padding-right: 20px;
+  }
 
-	h1,h2 { font-family: Verdana,arial,  helvetica, sans-serif;
-	
-	font-size:larger;
-	}
-	header {border: 1px dashed #ffd700;
-	padding:1em;
-	margin:0px;}
+  table {
+    border-collapse: collapse;
+    border: 1px solid #630;
+    font: normal 80% arial, Verdana, helvetica, sans-serif;
+  }
+  th, td {
+    text-align: left;
+    vertical-align: top;
+    padding: 0.3em;
+    border: 1px solid #630;
+  }
 
-.navlist li
-{
-display: inline;
-list-style-type: none;
-padding-right: 20px;
-}
+  th {
+    font-size: 150%;
+  }
+  td {
+    font-size: 130%;
+  }
+  td p {
+    margin: 0;
+  }
+  thead th, thead td {
+    font-weight: bold;
+    text-align: center;
+  }
 
-	table
-
-	{
-
-		border-collapse: collapse;
-
-		border: 1px solid #630;
-
-		font: normal 80% arial, Verdana, helvetica, sans-serif;
-	}
-
-
-
-	th, td
-
-	{
-
-		text-align: left;
-
-		vertical-align: top;
-
-		padding: 0.3em;
-
-		border: 1px solid #630;
-
-	}
-
-	th {font-size:150%;}
-	td {font-size:130%;}
-	td p {margin:0 0 0 0;}
-	thead th, thead td
-
-	{
-
-		font-weight: bold;
-
-		text-align: center;
-
-	}
-
-	td span {border: 2px solid #9acd32;display:inline-block;padding:2px;}
-	span:focus {background:#f5f5f5;border: 2px solid #a0522d;}
-	/*td:focus {background:#f5f5f5;border: 2px solid #a0522d;}*/
-	caption {text-align:left}
+  td span {
+    border: 2px solid #9acd32;
+    display: inline-block;
+    padding: 2px;
+  }
+  span:focus {
+    background: #f5f5f5;
+    border: 2px solid #a0522d;
+  }
+  /*td:focus {background: #f5f5f5;border: 2px solid #a0522d;}*/
+  caption {
+    text-align: left;
+  }
 
 
-	td.support {background:#90ee90;}
-	td.partial {background:#eee8aa;}
-	td.nosupport{background:#ffb6c1;}
+  td.support {
+    background: #90ee90;
+  }
+  td.partial {
+    background: #eee8aa;
+  }
+  td.nosupport {
+    background: #ffb6c1;
+  }
 
 
-	td p.note{border: 1px dashed red;padding: 5px;margin-top:5px;background:#FFFFFF}
+  td p.note {
+    border: 1px dashed red;
+    padding: 5px;
+    margin-top: 5px;
+    background: #FFFFFF;
+  }
 
-	td ul  {padding-left:12px}
-	/*	img {border: 1px solid #630;}*/
-	.test {border: 1px solid #666666;padding:4px;margin-top:15px;background:#FFFFCC}
+  td ul {
+    padding-left: 12px;
+  }
+  /*  img {border: 1px solid #630;}*/
+  .test {
+    border: 1px solid #666666;
+    padding: 4px;
+    margin-top: 15px;
+    background: #FFFFCC;
+  }
 
-	
-	
-		
-	
-	h3 {
-		
-		
-		font-size:150%;
-	}
-	
-	p, li {font-family: arial}
-	
-	h2 {
-	color: #008000;
-}
+  h3 {
+    font-size: 150%;
+  }
 
-#float {float:right;}
+  p, li {
+    font-family: arial;
+  }
 
-.nvda { border:1px #ff7f50 solid; font-size: 80%;padding:5px;}
+  h2 {
+    color: #008000;
+  }
 
-#banner {
-	float:left;
-	font-size: 250%;
-}
+  #float {
+    float: right;
+  }
 
-#subheader {clear:both}
+  .nvda {
+    border: 1px #ff7f50 solid;
+    font-size: 80%;
+    padding: 5px;
+  }
 
-span.cap {display:inline-block}
+  #banner {
+    float: left;
+    font-size: 250%;
+  }
 
-ul.sumry li
-{
-display: inline;
-list-style-type: none;
-padding-right:1em;
-font-weight: bold;
-color:#C00;}
+  #subheader {
+    clear: both;
+  }
 
-span.hidden {
-	position:absolute;
-left:-10000px;
-top:auto;
-width:1px;
-height:1px;
-overflow:hidden;
-}
+  span.cap {
+    display: inline-block;
+  }
 
-header {
-	border: 1px dashed #ff8c00;
-	padding: 1em;
-}
-.float {
-	float: left;
-}
-#wrapper {
-	width: 90%;
-	background-color:#FFF;
-	padding: 1em ;
-}
-.style1 {color: #006600}
-.style2 {color: #CC3300}
-.style3 {font-size: large}
-.style4 {font-size: large; color: #006600; }
-.style5 {color: #FF00FF}
+  ul.sumry li {
+    display: inline;
+    list-style-type: none;
+    padding-right: 1em;
+    font-weight: bold;
+    color: #C00;
+  }
+
+  span.hidden {
+    position: absolute;
+    left:-10000px;
+    top: auto;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+  }
+
+  header {
+    border: 1px dashed #ff8c00;
+    padding: 1em;
+  }
+  .float {
+    float: left;
+  }
+  #wrapper {
+    width: 90%;
+    background-color: #FFF;
+    padding: 1em ;
+  }
+  .style1 {
+    color: #006600;
+  }
+  .style2 {
+    color: #CC3300;
+  }
+  .style3 {
+    font-size: large;
+  }
+  .style4 {
+    font-size: large;
+    color: #006600;
+  }
+  .style5 {
+    color: #FF00FF;
+  }
 </style>
  
 </head>
@@ -167,7 +198,7 @@ header {
     </div><div><img src="http://www.html5accessibility.com/images/HTML5_Logo.png" alt="HTML5" width="128" height="128" border="0"> <img src="http://www.html5accessibility.com/images/logo_reasonably_small.png" alt="Accessibility" width="128" height="128"></div>
   </header>
   <div role="main">
-    <div class=windows> </div>
+    <div class="windows"> </div>
 <h3>Table Legend &amp; notes:</h3>
     <ul>
       <li><img src="http://www.html5accessibility.com/images/cross.png" width="16" height="16" alt="not supported"> &quot;not supported&quot; means the feature is implemented by the browser, but required accessibility support is not implemented.</li>
