@@ -5,226 +5,242 @@
 
 <title>HTML5 accessibility - January 2013</title>
 <script>
-	function noimage()
+  function noimage() {
+    var imagesOn = (function(){var i=new
+    Image();i.src='data:image/gif,GIF89a%01%00%01%00%80%00%00%00%00%00%FF%FF%FF!%F9%04%01%00%00%00%00%2C%00%00%00%00%01%00%01%00%00%02%01D%00%3B';return!!i.width})();
+    //alert(imagesOn);
 
-{
-
-
-var imagesOn = (function(){var i=new
-Image();i.src='data:image/gif,GIF89a%01%00%01%00%80%00%00%00%00%00%FF%FF%FF!%F9%04%01%00%00%00%00%2C%00%00%00%00%01%00%01%00%00%02%01D%00%3B';return!!i.width})();
-//alert(imagesOn); 
-
-if
-
-((document.images[0].readyState='uninitialized'&&document.images[0].naturalHeight=='undefined'&&window.opera==null&&checkHC()!=true)||(document.images[0].naturalHeight>=1&&window.opera==null&&checkHC()!=true)||(imagesOn==true&&window.opera!=null))
-{
-
-
-var objHead = document.getElementsByTagName('head');
-var objCSS = objHead[0].appendChild(document.createElement('link'));
-    objCSS.rel = 'stylesheet';
-    objCSS.href = 'alt.css';
-    objCSS.type = 'text/css';
-
+    if
+((document.images[0].readyState='uninitialized'&&document.images[0].naturalHeight=='undefined'&&window.opera==null&&checkHC()!=true)||(document.images[0].naturalHeight>=1&&window.opera==null&&checkHC()!=true)||(imagesOn==true&&window.opera!=null)) {
+  var objHead = document.getElementsByTagName('head');
+  var objCSS = objHead[0].appendChild(document.createElement('link'));
+      objCSS.rel = 'stylesheet';
+      objCSS.href = 'alt.css';
+      objCSS.type = 'text/css';
+    }
 }
 
+function checkHC() {
+  var e,c;
+  //Create a test div
+  e=document.createElement("div");
+  //Set its color style to something unusual
+  e.style.color="rgb(31,41,59)";
+  //Attach to body so we can inspect it
+  document.body.appendChild(e);
+  //Use standard means if available, otherwise use the IE methods
+  c=document.defaultView?document.defaultView.getComputedStyle(e,null).color:e.currentStyle.color;
+  //Delete the test DIV
+  document.body.removeChild(e);
+  //get rid of extra spaces in result
+  c=c.replace(/ /g,"");
+  //Check if we got back what we set
+  //If not we are in high contrast mode
+
+  if (c!="rgb(31,41,59)"){
+    return true;
+  }
 }
-
-function checkHC(){
-		
-			var e,c;
-			//Create a test div
-			e=document.createElement("div");
-			//Set its color style to something unusual
-			e.style.color="rgb(31,41,59)";
-			//Attach to body so we can inspect it
-			document.body.appendChild(e);
-			//Use standard means if available, otherwise use the IE methods
-			c=document.defaultView?document.defaultView.getComputedStyle(e,null).color:e.currentStyle.color;
-			//Delete the test DIV
-			document.body.removeChild(e);
-			//get rid of extra spaces in result
-			c=c.replace(/ /g,"");
-			//Check if we got back what we set
-			//If not we are in high contrast mode
-			
-			if (c!="rgb(31,41,59)"){
-			return true;
-			}
-		
-		}
-
-
 </script>
 <style type="text/css">
-	body 
+  body {
+    font-family: arial, Verdana, helvetica, sans-serif;
+    color: #333;
+    background: #FC0;
+    padding: 0;
+    font-size: 90%;
+  }
 
-	{
-		font-family: arial, Verdana, helvetica, sans-serif;
-		
-		color: #333;
-		background: #FC0;
-		padding: 0;
-font-size:90%
+  caption {
+    text-align: left;
+    font-weight: bold;
+    font-size: large;
+  }
 
-	}
+  h1, h2 {
+    font-family: Verdana,arial, helvetica, sans-serif;
+    font-size: larger;
+  }
+  header {
+    border: 1px dashed #ffd700;
+    padding: 1em;
+    margin: 0;
+  }
 
-	caption {text-align:left;font-weight:bold;font-size:large}
+  .navlist li {
+    display: inline;
+    list-style-type: none;
+    padding-right: 20px;
+  }
 
-	h1,h2 { font-family: Verdana,arial,  helvetica, sans-serif;
-	
-	font-size:larger;
-	}
-	header {border: 1px dashed #ffd700;
-	padding:1em;
-	margin:0px;}
+  table {
+    border-collapse: collapse;
+    border: 1px solid #630;
+    font: normal 80% arial, Verdana, helvetica, sans-serif;
+  }
+  th, td {
+    text-align: left;
+    vertical-align: top;
+    padding: 0.3em;
+    border: 1px solid #630;
+  }
 
-.navlist li
-{
-display: inline;
-list-style-type: none;
-padding-right: 20px;
-}
+  th {
+    font-size: 150%;
+  }
+  td {
+    font-size: 130%;
+  }
+  td p {
+    margin: 0;
+  }
+  thead th, thead td {
+    font-weight: bold;
+    text-align: center;
+  }
 
-	table
-
-	{
-
-		border-collapse: collapse;
-
-		border: 1px solid #630;
-
-		font: normal 80% arial, Verdana, helvetica, sans-serif;
-	}
-
-
-
-	th, td
-
-	{
-
-		text-align: left;
-
-		vertical-align: top;
-
-		padding: 0.3em;
-
-		border: 1px solid #630;
-
-	}
-
-	th {font-size:150%;}
-	td {font-size:130%;}
-	td p {margin:0 0 0 0;}
-	thead th, thead td
-
-	{
-
-		font-weight: bold;
-
-		text-align: center;
-
-	}
-
-	td span {display:inline-block;padding:2px;}
-	span:focus {background:#f5f5f5;border: 2px solid #a0522d;}
-	/*td:focus {background:#f5f5f5;border: 2px solid #a0522d;}*/
-	caption {text-align:left}
+  td span {
+    display: inline-block;
+    padding: 2px;
+  }
+  span:focus {
+    background: #f5f5f5;
+    border: 2px solid #a0522d;
+  }
+  /*td:focus {background:#f5f5f5;border: 2px solid #a0522d;}*/
+  caption {
+    text-align: left;
+  }
 
 
-	.support {background:#90ee90;}
-	.partial {background:#eee8aa;}
-	td.nosupport{background:#ffb6c1;}
+  .support {
+    background: #90ee90;
+  }
+  .partial {
+    background: #eee8aa;
+  }
+  td.nosupport{
+    background: #ffb6c1;
+  }
 
+  td p.note{
+    border: 1px dashed red;
+    padding: 5px;
+    margin-top: 5px;
+    background: #FFFFFF;
+  }
 
-	td p.note{border: 1px dashed red;padding: 5px;margin-top:5px;background:#FFFFFF}
+  td ul  {
+    padding-left: 12px;
+  }
+  /*  img {border: 1px solid #630;}*/
+  .test {
+    border: 1px solid #666666;
+    padding: 4px;
+    margin-top: 15px;
+    background: #FFFFCC;
+  }
 
-	td ul  {padding-left:12px}
-	/*	img {border: 1px solid #630;}*/
-	.test {border: 1px solid #666666;padding:4px;margin-top:15px;background:#FFFFCC}
+  h3 {
+    font-size: 150%;
+  }
 
-	
-	
-		
-	
-	h3 {
-		
-		
-		font-size:150%;
-	}
-	
-	p, li {font-family: arial}
-	
-	h2 {
-	color: #008000;
-}
+  p, li {
+    font-family: arial;
+  }
 
-#float {float:right;}
+  h2 {
+   color: #008000;
+  }
 
-.nvda { border:1px #ff7f50 solid; font-size: 80%;padding:5px;}
+  #float {
+    float: right;
+  }
 
-#banner {
-	float:left;
-	font-size: 250%;
-}
+  .nvda {
+    border: 1px solid #ff7f50;
+    font-size: 80%;
+    padding: 5px;
+  }
 
-#subheader {clear:both}
+  #banner {
+    float: left;
+    font-size: 250%;
+  }
 
-span.cap {display:inline-block}
+  #subheader {
+    clear: both;
+  }
 
-ul.sumry li
-{
-display: inline;
-list-style-type: none;
-padding-right:1em;
-font-weight: bold;
-color:#C00;}
+  span.cap {
+    display: inline-block;
+  }
 
-span.hidden {
-position:relative;
-left:0;
-top:auto;
-width:inherit;
-height:inherit;
-overflow:inherit;
-	
-}
+  ul.sumry li {
+  display: inline;
+  list-style-type: none;
+  padding-right: 1em;
+  font-weight: bold;
+  color: #C00;
+  }
 
-header {
-	border: 1px dashed #ff8c00;
-	padding: 1em;
-}
-.float {
-	float: left;
-}
-#wrapper {
-	width: 90%;
-	background-color:#FFF;
-	padding: 1em ;
-}
-.style1 {color: #006600;font-size: large;}
-.style2 {color: #CC3300}
-.style3 {font-size: large}
-.style4 {font-size: large; color: #006600; }
-.style5 {color: #FF00FF}
+  span.hidden {
+  position: relative;
+  left: 0;
+  top: auto;
+  width: inherit;
+  height: inherit;
+  overflow: inherit;
+  }
+
+  header {
+    border: 1px dashed #ff8c00;
+    padding: 1em;
+  }
+  .float {
+    float: left;
+  }
+  #wrapper {
+    width: 90%;
+    background-color: #FFF;
+    padding: 1em;
+  }
+
+  .style1 {
+    color: #006600;
+    font-size: large;
+  }
+  .style2 {
+    color: #CC3300;
+  }
+  .style3 {
+    font-size: large;
+  }
+  .style4 {
+    font-size: large;
+    color: #006600;
+  }
+  .style5 {
+    color: #FF00FF;
+  }
 </style>
  
 </head>
 
 <body onload="noimage();checkHC();">
 <div id="wrapper">
-  <header role="banner"> <div id="float">
-    <p class="nvda">Use and <a href="http://www.nvaccess.org/wiki/Donate">support</a> <a href="http://www.nvda-project.org/"><abbr title="NonVisual Desktop Access ">NVDA</abbr></a> the open source screen reader for Windows.</p>
+  <header role="banner">
+    <div id="float">
+      <p class="nvda">Use and <a href="http://www.nvaccess.org/wiki/Donate">support</a> <a href="http://www.nvda-project.org/"><abbr title="NonVisual Desktop Access ">NVDA</abbr></a> the open source screen reader for Windows.</p>
     
-    <p class="nvda"><strong>HTML5accessibility.com <a href="http://www.paciellogroup.com">developed by TPG</a> <em>your accessibility partner</em>. <br> 
-      <a href="http://www.paciellogroup.com/about_7">Contact us</a> for  solutions to your accessibility issues.</strong></p>  
+      <p class="nvda"><strong>HTML5accessibility.com <a href="http://www.paciellogroup.com">developed by TPG</a> <em>your accessibility partner</em>. <br> 
+        <a href="http://www.paciellogroup.com/about_7">Contact us</a> for  solutions to your accessibility issues.</strong></p>  
     </div><div><img src="images/HTML5_Logo.png" alt="HTML5" width="128" height="128" border="0"> <img src="images/logo_reasonably_small.png" alt="Accessibility" width="128" height="128"></div>
     <h1>A work in progress: June 2013</h1>
     <p><strong>Editors Draft June 01 2013</strong></p>
     <p><strong>WARNING!</strong> the data below is being revised</p>
-    
-    
-    <ul class=navlist>
+
+    <ul class="navlist">
       <li><strong>Also on this site and elsewhere:</strong> <a href="index-aria.html">HTML5 accessibility support work arounds</a>.</li>
       <li><a href="http://www.paciellogroup.com/blog/?s=%22HTML5+accessibility+chops%22">HTML5 Accessibility Chops</a></li>
       <li><a href="http://rawgithub.com/w3c/aria-in-html/master/index.html">Using ARIA in HTML</a>
@@ -233,8 +249,8 @@ header {
   </header>
   
   <div role="main">
-    
-    <div class=windows>
+
+    <div class="windows">
       <h3><img src="images/windows_logo.gif" width="47" height="48" alt=""> <a href="#wbdetails">Windows Browsers</a> Summary - Firefox has the best HTML5 Accessibility Support Score</h3>
       <p><strong>HTML5 Accessibility Support Score</strong></p>
       <ul class="sumry">
@@ -252,7 +268,7 @@ header {
         &nbsp;<span class="style3">18/100</span></li>
       </ul>
     </div>   
-   <!-- <div class=mac><h3><img src="images/mac-logo.png" width="64" height="64">  Mac Summary</h3>
+   <!-- <div class="mac"><h3><img src="images/mac-logo.png" width="64" height="64">  Mac Summary</h3>
       <ul class="sumry">
         <li><img src="images/chrome.png" alt="Chrome" width="62" height="61" border="0" id="chrome-img"><meter min="0" max="370" value="145" aria-labelledby="chrome-img chrome"><span id="chrome">145/370</span></meter></li>
         <li><img src="images/firefox.png" alt="Firefox" width="62" height="61" border="0" id="FF-img"><meter min="0" max="100" value="40" aria-labelledby="FF-img FF">Getting better</meter></li>
@@ -400,7 +416,7 @@ header {
         <p><strong>Firefox:</strong> exposes element as IA2 caption role and the element name as an IA2 object attribute, exposes the  <code>figcaption</code> content as an accessible name for its parent <code>figure</code>.</p></td>
       </tr>
       <tr>
-        <th scope="row"><code><A href="http://dev.w3.org/html5/spec/grouping-content.html#the-figure-element">figure</A></code> element</th>
+        <th scope="row"><code><a href="http://dev.w3.org/html5/spec/grouping-content.html#the-figure-element">figure</a></code> element</th>
         <td><img src="images/cross.png" alt="not supported" width="16" height="16" border="0"><span class="hidden">Not supported</span></td>
         <td><img src="images/tick.png" width="16" height="16" alt=""><span class="hidden"> Supported</span></td>
         <td><img src="images/cross.png" width="16" height="16" alt=""><span class="hidden">Not supported</span></td>
@@ -570,7 +586,7 @@ header {
         <p><strong>Chrome : </strong>keyboard accessible<strong>, </strong>role exposed as edit box should be spinbutton</p></td>
       </tr>
       <!--<tr>
-    <td><code><A href="http://dev.w3.org/html5/spec/text-level-semantics.html#the-mark-element">mark</A></code></td>
+    <td><code><a href="http://dev.w3.org/html5/spec/text-level-semantics.html#the-mark-element">mark</a></code></td>
     <td><img src="images/cross.png" width="16" height="16" alt=""><span class="hidden">Not supported</span></td>
     <td><img src="images/cross.png" width="16" height="16" alt=""><span class="hidden">Not supported</span></td>
    <td><img src="images/ni.gif" width="25" height="25" alt=""><span class="hidden">Not implemented</span></td>
@@ -717,7 +733,7 @@ header {
         <p>Refer to <a href="http://www.w3.org/community/texttracks/2012/08/23/webvtt-support-in-browsers/">WebVTT support in browsers</a> for more details</p></td>
       </tr>
       <!--<tr>
-    <td><code><A href="http://dev.w3.org/html5/spec/text-level-semantics.html#the-time-element">time</A></code> element</td>
+    <td><code><a href="http://dev.w3.org/html5/spec/text-level-semantics.html#the-time-element">time</a></code> element</td>
     <td><img src="images/cross.png" width="16" height="16" alt=""><span class="hidden">Not supported</span></td>
     <td><img src="images/cross.png" width="16" height="16" alt=""><span class="hidden">Not supported</span></td>
    <td><img src="images/ni.gif" width="25" height="25" alt=""><span class="hidden">Not implemented</span></td>
@@ -891,7 +907,7 @@ AXRoleDescription:  &quot;complementary&quot;</p></td>
     <td><p><strong>Chrome,Firefox,Opera, Safari: </strong>provide the same amount of semantic information to <abbr title="assistive technology">AT</abbr> as a div element</p></td>
   </tr>
   <tr>
-    <th scope="row"><code><A href="http://dev.w3.org/html5/spec/grouping-content.html#the-figure-element">figure</A></code> element</th>
+    <th scope="row"><code><a href="http://dev.w3.org/html5/spec/grouping-content.html#the-figure-element">figure</a></code> element</th>
     <td><img src="images/cross.png" alt="not supported" width="16" height="16" border="0"><span class="hidden">Not supported</span></td>
     <td><img src="images/cross.png" width="16" height="16" alt=""><span class="hidden">Not supported</span></td>
     <td class="partial"><img src="images/cross.png" width="16" height="16" alt=""><span class="hidden">Not supported</span></td>
@@ -1035,7 +1051,7 @@ AXRoleDescription:  &quot;complementary&quot;</p></td>
     <td><p><strong>Opera</strong>: date picker cannot be activated using the keybaord, no information exposed to assistive technology.</p></td>
   </tr>
   <!--<tr>
-    <td><code><A href="http://dev.w3.org/html5/spec/text-level-semantics.html#the-mark-element">mark</A></code></td>
+    <td><code><a href="http://dev.w3.org/html5/spec/text-level-semantics.html#the-mark-element">mark</a></code></td>
     <td><img src="images/cross.png" width="16" height="16" alt=""><span class="hidden">Not supported</span></td>
     <td><img src="images/cross.png" width="16" height="16" alt=""><span class="hidden">Not supported</span></td>
    <td><img src="images/ni.gif" width="25" height="25" alt=""><span class="hidden">Not implemented</span></td>
@@ -1158,7 +1174,7 @@ AXRoleDescription:  &quot;complementary&quot;</p></td>
         <p>Refer to <a href="http://www.w3.org/community/texttracks/2012/08/23/webvtt-support-in-browsers/">WebVTT support in browsers</a> for more details</p></td>
       </tr>
   <!--<tr>
-    <td><code><A href="http://dev.w3.org/html5/spec/text-level-semantics.html#the-time-element">time</A></code> element</td>
+    <td><code><a href="http://dev.w3.org/html5/spec/text-level-semantics.html#the-time-element">time</a></code> element</td>
     <td><img src="images/cross.png" width="16" height="16" alt=""><span class="hidden">Not supported</span></td>
     <td><img src="images/cross.png" width="16" height="16" alt=""><span class="hidden">Not supported</span></td>
    <td><img src="images/ni.gif" width="25" height="25" alt=""><span class="hidden">Not implemented</span></td>
@@ -1237,11 +1253,11 @@ AXRoleDescription:  &quot;complementary&quot;</p></td>
   <li>A <a href="http://www.html5accessibility.com/html5elements/">test page</a> was used to test the support in each browser.</li>
   <li>The following tools were used to test the <a href="http://dev.w3.org/html5/spec/spec.html">HTML5</a> feature information being exposed in browsers to accessibility APIs:
     <ul>
-      <li><A href="http://www.paciellogroup.com/blog/?p=635">Aviewer</A> (free desktop   application for windows ) </li>
-      <li><A href="https://addons.mozilla.org/en-US/firefox/addon/6622/">Dom   Inspector</A> (free Firefox extension) </li>
-      <li><A href="http://msdn.microsoft.com/en-us/library/dd318521%28v=vs.85%29.aspx">Inspect.exe</A> (free desktop application for windows available as part of the Windows SDK) </li>
-      <li><A href="http://accessibility.linuxfoundation.org/a11yweb/util/accprobe/">Accprobe</A> (free   open source desktop application) </li>
-      <li><A href="http://developer.apple.com/library/mac/#documentation/Accessibility/Conceptual/AccessibilityMacOSX/OSXAXTesting/OSXAXTestingApps.html">Accessibility   Inspector</A>A(free Mac application) </li>
+      <li><a href="http://www.paciellogroup.com/blog/?p=635">Aviewer</a> (free desktop   application for windows ) </li>
+      <li><a href="https://addons.mozilla.org/en-US/firefox/addon/6622/">Dom   Inspector</a> (free Firefox extension) </li>
+      <li><a href="http://msdn.microsoft.com/en-us/library/dd318521%28v=vs.85%29.aspx">Inspect.exe</a> (free desktop application for windows available as part of the Windows SDK) </li>
+      <li><a href="http://accessibility.linuxfoundation.org/a11yweb/util/accprobe/">Accprobe</a> (free   open source desktop application) </li>
+      <li><a href="http://developer.apple.com/library/mac/#documentation/Accessibility/Conceptual/AccessibilityMacOSX/OSXAXTesting/OSXAXTestingApps.html">Accessibility   Inspector</a>A(free Mac application) </li>
     </ul>
   </li>
   <li>Keyboard support was tested by attempting to use interactive controls using the keyboard.</li>
@@ -1262,8 +1278,8 @@ AXRoleDescription:  &quot;complementary&quot;</p></td>
 <p>Total = 100 - 71.42 - 4.76 = <strong>24</strong></p>
 <p>&nbsp;</p>
 
-  <footer role="contentinfo"><p><A href="http://creativecommons.org/licenses/by-sa/2.0/uk/" rel="license"><IMG alt="Creative Commons License" src="http://i.creativecommons.org/l/by-sa/2.0/uk/88x31.png"></A><BR>
-    This <SPAN rel="dc:type" href="http://purl.org/dc/dcmitype/Text" xmlns:dc="http://purl.org/dc/elements/1.1/">work</SPAN> is licenced under a <A href="http://creativecommons.org/licenses/by-sa/2.0/uk/" rel="license">Creative   Commons Licence</A>.</p>
+  <footer role="contentinfo"><p><a href="http://creativecommons.org/licenses/by-sa/2.0/uk/" rel="license"><img alt="Creative Commons License" src="http://i.creativecommons.org/l/by-sa/2.0/uk/88x31.png"></a><br>
+    This <span rel="dc:type" href="http://purl.org/dc/dcmitype/Text" xmlns:dc="http://purl.org/dc/elements/1.1/">work</span> is licenced under a <a href="http://creativecommons.org/licenses/by-sa/2.0/uk/" rel="license">Creative   Commons Licence</a>.</p>
   <p>Updated: 17/09/2012</p>
   </footer>
   <!-- Begin Web-Stat hit counter code -->
